@@ -1,12 +1,16 @@
+import { useState } from 'react';
 import Header from './components/Header';
-import ReviewItem from './components/ReviewItem';
+import ReviewList from './components/ReviewList';
+import ReviewData from './data/ReviewData';
 
 function App() {
+  const [review, setReview] = useState(ReviewData);
+
   return (
     <>
       <Header />
-      <div className={'container'}>
-        <ReviewItem />
+      <div className='container'>
+        <ReviewList review={review} />
       </div>
     </>
   );
