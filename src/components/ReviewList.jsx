@@ -8,7 +8,7 @@ function ReviewList({ review }) {
   return (
     <div className='review-list'>
       {review.map(item => (
-        <ReviewItem key={item.id} item={item} />
+        <ReviewItem key={item.id} item={item} handleDelete={id => console.log(id)} />
       ))}
     </div>
   );
