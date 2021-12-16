@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Rubik:wght@300;400;500&display=swap');
 
 :root {
   --blue-color: #1985a1; /* blue munsell */
+  --lightblue-color: #a9d6e5; /* blue munsell */
   --green-color: #197278; /* skobeloff */
   --red-color: #c44536; /* intl orange golden gate bridge */
   --orange-color: #ee964b; /* sandy brown */
@@ -20,8 +22,8 @@
 
 body {
   font-family: 'Rubik', sans-serif;
-  background-color: var(--semi-grey-color);
   color: #fff;
+  background-color: var(--semi-grey-color);
   line-height: 1.6;
 }
 
@@ -36,31 +38,37 @@ ul {
 }
 
 header {
-  height: 90px;
-  width: 100%;
   display: flex;
+  width: 100%;
+  height: 90px;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
 }
 
-.title {
-  text-shadow: 2px 1px 1px rgba(0,0,0,0.3);
+h1.title {
   text-decoration: underline;
+  text-decoration-color: var(--blue-color);
 }
 
+span.title {
+  color: var(--blue-color);
+}
+
+
+/* *** CARD *** */
 .card {
-  background-color: #fff;
-  color: #333;
-  border-radius: 15px;
-  padding: 40px 50px;
-  margin: 20px 0;
   position: relative;
+  margin: 20px 0;
+  padding: 40px 50px;
+  color: var(--grey-color);
+  background-color: var(--lightblue-color);
+  border-radius: 15px;
 }
 
 .card.reverse {
+  color: var(--light-color);
   background-color: rgba(0, 0, 0, 0.4);
-  color: #fff;
 }
 
 .card h2 {
@@ -71,22 +79,23 @@ header {
 
 .rating {
   display: flex;
-  align-items: center;
   justify-content: space-around;
+  align-items: center;
   margin: 30px 0 40px;
 }
 
 .rating li,
 .num-display {
   position: relative;
-  background: #f4f4f4;
+  padding: 10px;
   width: 50px;
   height: 50px;
-  padding: 10px;
-  text-align: center;
-  border-radius: 50%;
   font-size: 19px;
+  text-align: center;
+  background-color: #f4f4f4;
   border: 1px #eee solid;
+  border-radius: 15px;
+  box-shadow: 1px 1px 3px 1.5px rgba(0,0,0,0.1);
   transition: 0.3s;
 }
 
@@ -94,18 +103,24 @@ header {
   position: absolute;
   top: 50%;
   left: 50%;
+  padding: 10px;
   width: 50px;
   height: 50px;
-  padding: 10px;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
 }
 
+.num-display {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
+
 .rating li:hover,
 .num-display {
-  background: var(--orange-color);
   color: #fff;
+  background-color: var(--orange-color);
 }
 
 [type='radio'] {
@@ -113,8 +128,8 @@ header {
 }
 
 [type='radio']:checked ~ label {
-  background: var(--red-color);
   color: #fff;
+  background: var(--red-color);
 }
 
 
@@ -122,15 +137,15 @@ header {
 .input-group {
   display: flex;
   flex-direction: row;
-  border: 1px solid #ccc;
   padding: 8px 10px;
+  border: 1px solid #ccc;
   border-radius: 8px;
 }
 
 input {
   flex-grow: 2;
-  border: none;
   font-size: 16px;
+  border: none;
 }
 
 input:focus {
@@ -140,16 +155,10 @@ input:focus {
 
 
 .feedback-stats {
-  color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.num-display {
-  position: absolute;
-  top: -10px;
-  left: -10px;
+  color: #fff;
 }
 
 .close,
@@ -157,9 +166,9 @@ input:focus {
   position: absolute;
   top: 10px;
   right: 20px;
-  cursor: pointer;
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 .edit {
@@ -169,18 +178,17 @@ input:focus {
 .message {
   padding-top: 10px;
   text-align: center;
-  color: rebeccapurple;
+  color: var(--yellow-color);
 }
 
 
 /* *** BUTTONS *** */
 .btn {
+  width: 100px;
+  height: 40px;
   color: #fff;
   border: 0;
   border-radius: 8px;
-  color: #fff;
-  width: 100px;
-  height: 40px;
   cursor: pointer;
 }
 
@@ -198,8 +206,8 @@ input:focus {
 }
 
 .btn:disabled {
-  background-color: #cccccc;
   color: #333;
+  background-color: #cccccc;
   cursor: auto;
 }
 
