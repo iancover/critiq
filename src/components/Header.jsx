@@ -1,9 +1,13 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
+function Header({ text, bgColor, txtColor }) {
+  const headerStyles = {
+    backgroundColor: bgColor,
+    color: txtColor
+  };
 
-function Header({ text }) {
   return (
-    <header>
+    <header style={headerStyles}>
       <div className='container'>
         <h2>{text}</h2>
       </div>
@@ -12,11 +16,15 @@ function Header({ text }) {
 }
 
 Header.defaultProps = {
-  text: 'Critiq App'
-}
+  text: 'Critiq App',
+  bgColor: 'var(--grey-color)',
+  txtColor: 'var(--light-color)'
+};
 
 Header.propTypes = {
   text: PropTypes.string.isRequired,
-}
+  bgColor: PropTypes.string.isRequired,
+  txtColor: PropTypes.string.isRequired,
+};
 
 export default Header;
