@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap');
 
 :root {
   --blue-color: #1985a1; /* blue munsell */
   --green-color: #197278; /* skobeloff */
   --red-color: #c44536; /* intl orange golden gate bridge */
+  --orange-color: #ee964b; /* sandy brown */
+  --yellow-color: #f4d35e; /* orange yellow crayola */
   --grey-color: #46494c; /* davys grey */
   --semi-grey-color: #4c5c68; /* black coral */
   --silver-color: #c5c3c6; /* silver */
@@ -34,12 +36,17 @@ ul {
 }
 
 header {
-  height: 70px;
+  height: 90px;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+}
+
+.title {
+  text-shadow: 2px 1px 1px rgba(0,0,0,0.3);
+  text-decoration: underline;
 }
 
 .card {
@@ -97,7 +104,7 @@ header {
 
 .rating li:hover,
 .num-display {
-  background: var(--red-color);
+  background: var(--orange-color);
   color: #fff;
 }
 
