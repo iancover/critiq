@@ -18,7 +18,7 @@ function Header({ titleStart, titleEnd, bgColor, txtColor }) {
 Header.defaultProps = {
   titleStart: 'crit',
   titleEnd: 'IQ',
-  bgColor: 'var(--grey-color)',
+  bgColor: 'rgba(0,0,0,0.4)',
   txtColor: 'var(--orange-color)'
 };
 
