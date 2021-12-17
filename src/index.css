@@ -176,9 +176,12 @@ input:focus {
 textarea {
   flex-grow: 2;
   max-width: 80%;
+  max-height: 150px;
+  min-height: 40px;
   font-size: 16px;
   margin-right: 10px;
   border: none;
+  overflow: scroll;
 }
 
 textarea:focus {
@@ -189,7 +192,8 @@ textarea:focus {
 /* *** BUTTONS *** */
 .btn {
   width: 100px;
-  height: 40px;
+  height: auto;
+  min-height: 40px;
   color: #fff;
   border: 0;
   border-radius: 8px;
