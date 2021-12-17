@@ -76,6 +76,26 @@ span.title {
   text-align: center;
 }
 
+/* *** RATING *** */
+.review-stats {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-weight: 400;
+  color: var(--orange-color);
+}
+
+span.avg {
+  padding-left: 10px;
+  color: var(--light-color);
+}
+
+.message {
+  padding-top: 10px;
+  text-align: center;
+  color: var(--yellow-color);
+}
+
 .rating {
   display: flex;
   justify-content: space-around;
@@ -153,18 +173,6 @@ input:focus {
 
 
 
-.review-stats {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #fff;
-}
-
-.message {
-  padding-top: 10px;
-  text-align: center;
-  color: var(--yellow-color);
-}
 
 
 /* *** BUTTONS *** */
