@@ -113,7 +113,7 @@ span.avg {
   font-size: 19px;
   text-align: center;
   background-color: #f4f4f4;
-  border: 1px #eee solid;
+  border: 1px var(--semi-grey-color) solid;
   border-radius: 15px;
   box-shadow: 1px 1px 3px 1.5px rgba(0,0,0,0.1);
   transition: 0.3s;
@@ -139,8 +139,8 @@ span.avg {
 
 .rating li:hover,
 .num-display {
-  color: #fff;
-  background-color: var(--orange-color);
+  color: var(--light-color);
+  background-color: var(--blue-color);
 }
 
 [type='radio'] {
@@ -230,13 +230,18 @@ textarea:focus {
   background: none;
   border: none;
   cursor: pointer;
+  transition: opacity 1s;
+  opacity: 0.2;
+}
+
+.close:hover {
+  transition: opacity 1s;
+  opacity: 1;
 }
 
 .edit {
   right: 40px;
 }
-
-
 
 
 /* *** ABOUT *** */
