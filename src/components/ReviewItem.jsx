@@ -16,6 +16,7 @@ function ReviewItem({ item, handleDelete }) {
 
 ReviewItem.propTypes = {
   item: PropTypes.object.isRequired,
+  handleDelete: PropTypes.func.isRequired,
 };
 
 export default ReviewItem;
