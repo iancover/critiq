@@ -158,6 +158,7 @@ span.avg {
   display: flex;
   flex-direction: row;
   padding: 8px 10px;
+  background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 8px;
 }
@@ -172,8 +173,17 @@ input:focus {
   outline: none;
 }
 
+textarea {
+  flex-grow: 2;
+  max-width: 80%;
+  font-size: 16px;
+  margin-right: 10px;
+  border: none;
+}
 
-
+textarea:focus {
+  outline: none;
+}
 
 
 /* *** BUTTONS *** */
