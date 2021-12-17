@@ -8,12 +8,17 @@ const ReviewData = [
   {
     id: 2,
     rating: 9,
-    text: 'Lorem ipsum dolor sit amet odit tempore veniam quod in magnam ratione pariatur! consectetur adipisicing elit. Inventore'
+    text: 'Ipsum dolor lorem sit amet odit tempore veniam quod in magnam ratione pariatur! consectetur adipisicing elit. Inventore'
   },
   {
     id: 3,
     rating: 7,
-    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores minus, laboriosam ullam alias fugit natus.'
+    text: 'Dolor lorem ipsum, dolor sit amet consectetur adipisicing elit. dolor sit amet dolor sit amet Asperiores minus, laboriosam ullam alias fugit natus.'
+  },
+  {
+    id: 4,
+    rating: 8,
+    text: 'Lorem ipsum, Asperiores minus, laboriosam dolor sit amet consectetur adipisicing elit.  ullam alias fugit natus.'
   }
 ];
 
