@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 
 function Card({ children, reverse }) {
   const cardStyles = {
-    backgroundColor: reverse ? 'var(--orange-color)' : 'var(--lightblue-color)',
-    color: reverse ? '#fff' : 'var(--grey-color)',
+    backgroundColor: reverse ? 'var(--lightblue-color)' : 'var(--light-color)',
+    color: reverse ? 'var(--semi-grey-color)' : 'var(--grey-color)',
   };
 
   // return <div className={`card ${reverse && 'reverse'}`}>{children}</div>;
