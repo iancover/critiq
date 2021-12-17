@@ -60,15 +60,15 @@ span.title {
   position: relative;
   margin: 20px 0;
   padding: 40px 50px;
-  color: var(--grey-color);
-  background-color: var(--lightblue-color);
+  /* color: var(--grey-color);
+  background-color: var(--lightblue-color); */
   border-radius: 15px;
 }
 
-.card.reverse {
+/* .card.reverse {
   color: var(--light-color);
   background-color: rgba(0, 0, 0, 0.4);
-}
+} */
 
 .card h2 {
   font-size: 22px;
