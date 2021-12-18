@@ -94,7 +94,7 @@ span.avg {
 .message {
   padding-top: 10px;
   text-align: center;
-  color: var(--yellow-color);
+  color: var(--orange-color);
 }
 
 .rating {
