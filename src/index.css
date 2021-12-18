@@ -76,27 +76,7 @@ span.title {
   text-align: center;
 }
 
-/* *** RATING *** */
-.review-stats {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding-right: 20px;
-  font-weight: 400;
-  color: var(--orange-color);
-}
-
-span.avg {
-  padding-left: 5px;
-  color: var(--light-color);
-}
-
-.message {
-  padding-top: 10px;
-  text-align: center;
-  color: var(--orange-color);
-}
-
+/* *** RATING: NUMS *** */
 .rating {
   display: flex;
   justify-content: space-around;
@@ -119,6 +99,14 @@ span.avg {
   transition: 0.3s;
 }
 
+.num-display {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  color: var(--light-color);
+  background-color: var(--blue-color);
+}
+
 .rating li label {
   position: absolute;
   top: 50%;
@@ -126,21 +114,14 @@ span.avg {
   padding: 10px;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: 15px;
   transform: translate(-50%, -50%);
   cursor: pointer;
 }
 
-.num-display {
-  position: absolute;
-  top: -10px;
-  left: -10px;
-}
-
-.rating li:hover,
-.num-display {
+.rating li:hover {
   color: var(--light-color);
-  background-color: var(--blue-color);
+  background-color: rgba(25, 133, 161, 0.7);
 }
 
 [type='radio'] {
@@ -149,11 +130,12 @@ span.avg {
 
 [type='radio']:checked ~ label {
   color: #fff;
-  background: var(--red-color);
+  background: var(--blue-color);
+  border: 1px var(--semi-grey-color) solid;
 }
 
 
-/* *** INPUT *** */
+/* *** REVIEW: TEXTAREA *** */
 .input-group {
   display: flex;
   flex-direction: row;
@@ -186,6 +168,26 @@ textarea {
 
 textarea:focus {
   outline: none;
+}
+
+.message {
+  padding-top: 10px;
+  text-align: center;
+  color: var(--orange-color);
+}
+
+.review-stats {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 20px;
+  font-weight: 400;
+  color: var(--orange-color);
+}
+
+span.avg {
+  padding-left: 5px;
+  color: var(--light-color);
 }
 
 
