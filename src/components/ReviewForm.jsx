@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import Card from './shared/Card';
 import Button from './shared/Button';
+import RatingSelect from './RatingSelect';
 
 function ReviewForm() {
+  const [rating, setRating] = useState(10);
   const [text, setText] = useState('');
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState('');
@@ -23,13 +25,13 @@ function ReviewForm() {
   return (
     <Card reverse={true}>
       <form>
-        <h2>Write your review:</h2>
-        {/* @toto - rating select component */}
+        <h2>Select Rating & Write Review:</h2>
+        <RatingSelect selectRating={rating => setRating(rating)} />
         <div className='input-group'>
           <textarea
             onChange={handleTextChange}
             type='text'
-            placeholder='Type here...'
+            placeholder='Enter text...'
             value={text}
             minLength={'50'}
             maxLength={'250'}
