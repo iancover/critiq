@@ -1,15 +1,23 @@
 import { useState } from 'react';
 import Card from './shared/Card';
+import Button from './shared/Button';
 
 function ReviewForm() {
   const [text, setText] = useState('');
+  const [btnDisabled, setBtnDisabled] = useState(true);
+  const [message, setMessage] = useState('');
 
   const handleTextChange = e => {
+    if (text === '') {
+      setBtnDisabled(true);
+      setMessage(null);
+    } else if (text !== '' && text.trim().length <= 50) {
+      setMessage('Text must be at least 50 characters');
+    } else {
+      setMessage(null);
+      setBtnDisabled(false);
+    }
     setText(e.target.value);
-  };
-
-  const btnStyles = {
-    backgroundColor: 'var(--orange-color)',
   };
 
   return (
@@ -27,10 +35,12 @@ function ReviewForm() {
             maxLength={'250'}
             autoCapitalize={'sentences'}
           />
-          <button type='submit' className='btn btn-primary' style={btnStyles}>
+          <Button type='submit' isDisabled={btnDisabled}>
             Post
-          </button>
+          </Button>
         </div>
+
+        {message && <div className='message'>{message}</div>}
       </form>
     </Card>
   );
