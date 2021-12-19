@@ -17,7 +17,7 @@ function ReviewList({ review, handleDelete }) {
 ReviewList.propTypes = {
   review: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.node.isRequired,
       rating: PropTypes.number.isRequired,
       text: PropTypes.string.isRequired,
     })
