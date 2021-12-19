@@ -3,7 +3,7 @@ import Card from './shared/Card';
 import Button from './shared/Button';
 import RatingSelect from './RatingSelect';
 
-function ReviewForm() {
+function ReviewForm({ handleAdd }) {
   const [rating, setRating] = useState(10);
   const [text, setText] = useState('');
   const [btnDisabled, setBtnDisabled] = useState(true);
@@ -22,9 +22,22 @@ function ReviewForm() {
     setText(e.target.value);
   };
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (text.trim().length > 50) {
+      const newReview = {
+        text,
+        rating,
+      };
+
+      handleAdd(newReview);
+      setText('');
+    }
+  };
+
   return (
     <Card reverse={true}>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h2>Select Rating & Write Review:</h2>
         <RatingSelect selectRating={rating => setRating(rating)} />
         <div className='input-group'>
@@ -33,8 +46,8 @@ function ReviewForm() {
             type='text'
             placeholder='Enter text...'
             value={text}
-            minLength={'50'}
-            maxLength={'250'}
+            minLength={'10'}
+            maxLength={'600'}
             autoCapitalize={'sentences'}
           />
           <Button type='submit' isDisabled={btnDisabled}>
