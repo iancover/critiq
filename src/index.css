@@ -199,6 +199,7 @@ span.avg {
   min-height: 40px;
   font-size: 1.1rem;
   color: #fff;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
 }
