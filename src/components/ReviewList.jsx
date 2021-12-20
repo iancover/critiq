@@ -15,8 +15,9 @@ function ReviewList({ review, handleDelete }) {
           <motion.div
             key={item.id}
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}>
+            animate={{ opacity: 1, transition: { duration: 1.5 } }}
+            exit={{ opacity: 0 }}
+            whileHover={{ scale: 1.05 }}>
             <ReviewItem key={item.id} item={item} handleDelete={handleDelete} />
           </motion.div>
         ))}
