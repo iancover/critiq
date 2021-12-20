@@ -1,17 +1,37 @@
-import ReviewItem from './ReviewItem';
 import PropTypes from 'prop-types';
+import { motion, AnimatePresence } from 'framer-motion';
+
+import ReviewItem from './ReviewItem';
 
 function ReviewList({ review, handleDelete }) {
   if (!review || review.length === 0) {
     return <p>No Reviews Yet</p>;
   }
+
   return (
     <div className='review-list'>
-      {review.map(item => (
-        <ReviewItem key={item.id} item={item} handleDelete={handleDelete} />
-      ))}
+      <AnimatePresence>
+        {review.map(item => (
+          <motion.div
+            key={item.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}>
+            <ReviewItem key={item.id} item={item} handleDelete={handleDelete} />
+          </motion.div>
+        ))}
+      </AnimatePresence>
     </div>
   );
+
+  // // without Framer Motion
+  // return (
+  //   <div className='review-list'>
+  //     {review.map(item => (
+  //       <ReviewItem key={item.id} item={item} handleDelete={handleDelete} />
+  //     ))}
+  //   </div>
+  // );
 }
 
 ReviewList.propTypes = {
