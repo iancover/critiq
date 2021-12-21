@@ -7,8 +7,9 @@ import Header from './components/Header';
 import ReviewList from './components/ReviewList';
 import ReviewStats from './components/ReviewStats';
 import ReviewForm from './components/ReviewForm';
-import AboutPage from './components/pages/AboutPage';
+import Post from './components/Post'
 import AboutLink from './components/AboutLink';
+import AboutPage from './components/pages/AboutPage';
 
 // fake data
 import ReviewData from './data/ReviewData';
@@ -43,6 +44,7 @@ function App() {
             }></Route>
 
           <Route path='/about' element={<AboutPage />} />
+          <Route path='/post/:id' element={<Post />} />
         </Routes>
         <AboutLink />
       </div>
