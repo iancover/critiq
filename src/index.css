@@ -300,7 +300,25 @@ span.avg {
 }
 
 .about-link a:hover {
-  color: var(--red-color);
+  color: var(--orange-color);
+  transition: color 1s;
+}
+
+a .about-icon:hover {
+  transform: scale(1.2, 1.2);
+  transition: transform 1s ease-in-out;
+}
+
+.about-link .tooltip {
+  top: -40px;
+  left: -50px;
+  opacity: 0;
+  transition: opacity .5s;
+}
+
+.about-link:hover .tooltip {
+  opacity: 1;
+  transition: opacity .5s .7s;
 }
 
 .about h1 {
