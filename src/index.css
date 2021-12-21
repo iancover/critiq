@@ -249,8 +249,8 @@ span.avg {
 
 .tooltip {
   position: absolute;
-  top: 30px;
-  left: 0px;
+  top: -25px;
+  left: -35px;
   z-index: 1;
   width: 90px;
   padding: 5px 0;
@@ -281,27 +281,31 @@ span.avg {
   /* visibility: visible; */
   opacity: 1;
   transition-property: opacity;
-  transition-delay: .7s;
   transition-duration: 1s;
+  transition-delay: 1.5s;
 }
 
 
 /* *** ABOUT *** */
 .about-link {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  color: #fff;
-  cursor: pointer;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 10px;
+  right: 0px;
+  padding-left: 110%;
+  /* cursor: pointer; */
 }
 
 .about-link a {
-  color: #fff;
+  color: var(--lightblue-color);
+  opacity: .5;
+  transition: color 1s, opacity 1s;
 }
 
 .about-link a:hover {
   color: var(--orange-color);
-  transition: color 1s;
+  opacity: 1;
+  transition: color 1s, opacity 1s;
 }
 
 a .about-icon:hover {
@@ -318,7 +322,7 @@ a .about-icon:hover {
 
 .about-link:hover .tooltip {
   opacity: 1;
-  transition: opacity .5s .7s;
+  transition: opacity .5s 2s;
 }
 
 .about h1 {
