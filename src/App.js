@@ -8,6 +8,7 @@ import ReviewList from './components/ReviewList';
 import ReviewStats from './components/ReviewStats';
 import ReviewForm from './components/ReviewForm';
 import AboutPage from './components/pages/AboutPage';
+import AboutLink from './components/AboutLink';
 
 // fake data
 import ReviewData from './data/ReviewData';
@@ -43,6 +44,7 @@ function App() {
 
           <Route path='/about' element={<AboutPage />} />
         </Routes>
+        <AboutLink />
       </div>
     </Router>
   );
