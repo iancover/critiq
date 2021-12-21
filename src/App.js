@@ -21,9 +21,8 @@ function App() {
   };
 
   const deleteReview = id => {
-    if (window.confirm('Are you sure you want to delete review?')) {
+    window.confirm('Permanently delete review?') &&
       setReview(review.filter(item => item.id !== id));
-    }
   };
 
   return (
