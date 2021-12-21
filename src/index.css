@@ -238,17 +238,51 @@ span.avg {
   background: none;
   border: none;
   cursor: pointer;
-  transition: opacity 1s;
+  color: var(--semi-grey-color);
   opacity: 0.2;
-}
-
-.close:hover {
-  transition: opacity 1s;
-  opacity: 1;
+  transition: opacity 1.2s, color 1s;
 }
 
 .edit {
-  right: 40px;
+  right: 50px;
+}
+
+.tooltip {
+  position: absolute;
+  top: 30px;
+  left: 0px;
+  z-index: 1;
+  width: 90px;
+  padding: 5px 0;
+  font-size: .9rem;
+  color: var(--light-color);
+  background-color: var(--grey-color);
+  text-align: center;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 1s;
+  /* visibility: hidden; */
+}
+
+.edit:hover {
+  color: var(--green-color);
+  opacity: 1;
+  transition: opacity 1.2s, color 1s;
+}
+
+.close:hover {
+  color: var(--red-color);
+  opacity: 1;
+  transition: opacity 1.2s, color 1s;
+}
+
+.edit:hover .tooltip,
+.close:hover .tooltip {
+  /* visibility: visible; */
+  opacity: 1;
+  transition-property: opacity;
+  transition-delay: .7s;
+  transition-duration: 1s;
 }
 
 
