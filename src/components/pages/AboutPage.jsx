@@ -1,43 +1,37 @@
+import { Fragment } from 'react';
 import Card from '../shared/Card';
-import { NavLink, useMatch } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function AboutPage() {
-  let match = useMatch('/about');
+  let active = 'var(--orange-color)';
+  let inactive = 'var(--green-color)';
 
-  console.log(match);
+  const handleActiveClass = ({ isActive }) => 'nav-link' + (isActive ? ' active' : '');
+  const handleActiveStyle = ({ isActive }) => ({ color: isActive ? active : inactive });
 
   return (
-    <>
+    <Fragment>
       <Card>
         <div className={'about'}>
           <h1>About critIQ</h1>
-          <p>This is a React App to rate and review products originally from a Udemy course.</p>
+          <p>This is a React App for posting ratings and reviews by critiques originally from a Udemy course.</p>
           <p>Version: 1.0.0</p>
         </div>
       </Card>
       <Card>
         <nav>
-          <NavLink
-            to={'/'}
-            className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}
-            style={({ isActive }) => ({ color: isActive ? 'var(--orange-color)' : 'var(--green-color)' })}>
+          <NavLink to={'/'} className={handleActiveClass} style={handleActiveStyle}>
             Home
           </NavLink>
-          <NavLink
-            to={'/post'}
-            className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}
-            style={({ isActive }) => ({ color: isActive ? 'var(--orange-color)' : 'var(--green-color)' })}>
+          <NavLink to={'/post'} className={handleActiveClass} style={handleActiveStyle}>
             Post
           </NavLink>
-          <NavLink
-            to={'.'}
-            className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}
-            style={({ isActive }) => ({ color: isActive ? 'var(--orange-color)' : 'var(--green-color)' })}>
+          <NavLink to={'.'} className={handleActiveClass} style={handleActiveStyle}>
             About
           </NavLink>
         </nav>
       </Card>
-    </>
+    </Fragment>
   );
 }
 
