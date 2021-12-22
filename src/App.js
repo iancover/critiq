@@ -1,16 +1,16 @@
 import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
 // components
 import Header from './components/Header';
-import ReviewList from './components/ReviewList';
-import ReviewStats from './components/ReviewStats';
 import ReviewForm from './components/ReviewForm';
-import AboutLink from './components/AboutLink';
+import ReviewStats from './components/ReviewStats';
+import ReviewList from './components/ReviewList';
 import AboutPage from './components/pages/AboutPage';
-
-// fake data
+import AboutLink from './components/AboutLink';
+// context
+import { ReviewProvider } from './context/ReviewContext';
+// data
 import ReviewData from './data/ReviewData';
 
 function App() {
@@ -27,26 +27,28 @@ function App() {
   };
 
   return (
-    <Router>
-      <Header />
-      <div className='container'>
-        <Routes>
-          <Route
-            exact
-            path='/'
-            element={
-              <>
-                <ReviewForm handleAdd={addReview} />
-                <ReviewStats review={review} />
-                <ReviewList review={review} handleDelete={deleteReview} />
-              </>
-            }></Route>
+    <ReviewProvider>
+      <Router>
+        <Header />
+        <div className='container'>
+          <Routes>
+            <Route
+              exact
+              path='/'
+              element={
+                <>
+                  <ReviewForm handleAdd={addReview} />
+                  <ReviewStats />
+                  <ReviewList handleDelete={deleteReview} />
+                </>
+              }></Route>
 
-          <Route path='/about' element={<AboutPage />} />
-        </Routes>
-        <AboutLink />
-      </div>
-    </Router>
+            <Route path='/about' element={<AboutPage />} />
+          </Routes>
+          <AboutLink />
+        </div>
+      </Router>
+    </ReviewProvider>
   );
 }
 
