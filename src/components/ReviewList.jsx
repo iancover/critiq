@@ -1,12 +1,13 @@
-import PropTypes from 'prop-types';
+import { useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import ReviewItem from './ReviewItem';
+import ReviewContext from '../context/ReviewContext';
 
-function ReviewList({ review, handleDelete }) {
-  if (!review || review.length === 0) {
-    return <p>No Reviews Yet</p>;
-  }
+function ReviewList({ handleDelete }) {
+  const { review } = useContext(ReviewContext);
+
+  (!review || review.length === 0) && <p>No Reviews Yet</p>;
 
   return (
     <div className='review-list'>
@@ -24,25 +25,6 @@ function ReviewList({ review, handleDelete }) {
       </AnimatePresence>
     </div>
   );
-
-  // // without Framer Motion
-  // return (
-  //   <div className='review-list'>
-  //     {review.map(item => (
-  //       <ReviewItem key={item.id} item={item} handleDelete={handleDelete} />
-  //     ))}
-  //   </div>
-  // );
 }
-
-ReviewList.propTypes = {
-  review: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.node.isRequired,
-      rating: PropTypes.number.isRequired,
-      text: PropTypes.string.isRequired,
-    })
-  ),
-};
 
 export default ReviewList;
