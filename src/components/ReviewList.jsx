@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ReviewItem from './ReviewItem';
 import ReviewContext from '../context/ReviewContext';
 
-function ReviewList({ handleDelete }) {
+function ReviewList() {
   const { review } = useContext(ReviewContext);
 
   (!review || review.length === 0) && <p>No Reviews Yet</p>;
@@ -19,7 +19,7 @@ function ReviewList({ handleDelete }) {
             animate={{ opacity: 1, transition: { duration: 1.5 } }}
             exit={{ opacity: 0 }}
             whileHover={{ scale: 1.05 }}>
-            <ReviewItem key={item.id} item={item} handleDelete={handleDelete} />
+            <ReviewItem key={item.id} item={item} />
           </motion.div>
         ))}
       </AnimatePresence>
