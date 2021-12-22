@@ -1,13 +1,17 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+// components
 import Card from './shared/Card';
 import Button from './shared/Button';
 import RatingSelect from './RatingSelect';
+// context
+import ReviewContext from '../context/ReviewContext';
 
-function ReviewForm({ handleAdd }) {
+function ReviewForm() {
   const [rating, setRating] = useState(10);
   const [text, setText] = useState('');
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState('');
+  const { addReview } = useContext(ReviewContext);
 
   const handleTextChange = e => {
     if (text === '') {
@@ -25,12 +29,8 @@ function ReviewForm({ handleAdd }) {
   const handleSubmit = e => {
     e.preventDefault();
     if (text.trim().length > 50) {
-      const newReview = {
-        text,
-        rating,
-      };
-
-      handleAdd(newReview);
+      const newReview = { text, rating };
+      addReview(newReview);
       setText('');
     }
   };
