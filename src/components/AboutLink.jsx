@@ -14,7 +14,7 @@ function AboutLink() {
             hash: '#hello',
           }}>
           <FaInfoCircle size={30} className={'about-icon'} />
-          <span className={'tooltip'}>About</span>
+          {/* <span className={'tooltip'}>About</span> */}
         </Link>
       )}
     </div>
