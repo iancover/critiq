@@ -7,7 +7,6 @@ import Header from './components/Header';
 import ReviewList from './components/ReviewList';
 import ReviewStats from './components/ReviewStats';
 import ReviewForm from './components/ReviewForm';
-import Post from './components/Post'
 import AboutLink from './components/AboutLink';
 import AboutPage from './components/pages/AboutPage';
 
@@ -44,7 +43,6 @@ function App() {
             }></Route>
 
           <Route path='/about' element={<AboutPage />} />
-          <Route path='/post/*' element={<Post />} />
         </Routes>
         <AboutLink />
       </div>
