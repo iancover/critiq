@@ -5,12 +5,12 @@ import Card from './shared/Card';
 import ReviewContext from '../context/ReviewContext';
 
 function ReviewItem({ item }) {
-  const { deleteReview } = useContext(ReviewContext);
+  const { deleteReview, editReview } = useContext(ReviewContext);
 
   return (
     <Card>
       <div className='num-display'>{item.rating}</div>
-      <button className='edit' onClick={() => console.log('edit')}>
+      <button className='edit' onClick={() => editReview(item)}>
         <EditIcon />
         <span className={'tooltip'}>Edit</span>
       </button>
