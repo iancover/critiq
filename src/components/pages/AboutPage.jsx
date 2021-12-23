@@ -14,7 +14,7 @@ function AboutPage() {
       <Card>
         <div className={'about'}>
           <h1>About critIQ</h1>
-          <p>This is a React App for posting ratings and reviews by critiques originally from a Udemy course.</p>
+          <p>This is a React App for posting ratings and reviews by critics originally from a Udemy course project.</p>
           <p>Version: 1.0.0</p>
         </div>
       </Card>
