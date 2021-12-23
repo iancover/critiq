@@ -5,11 +5,13 @@ import ReviewItem from './ReviewItem';
 import ReviewContext from '../context/ReviewContext';
 
 function ReviewList() {
-  const { reviews } = useContext(ReviewContext);
+  const { reviews, isLoading } = useContext(ReviewContext);
 
-  (!reviews || reviews.length === 0) && <p>No Reviews Yet</p>;
+  !isLoading && (!reviews || reviews.length === 0) && <p>No Reviews Yet</p>;
 
-  return (
+  return isLoading ? (
+    <h3>Loading...</h3>
+  ) : (
     <div className='review-list'>
       <AnimatePresence>
         {reviews.map(item => (
