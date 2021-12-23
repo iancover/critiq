@@ -32,15 +32,19 @@ export const ReviewProvider = ({ children }) => {
     });
   };
 
+  const updateReview = (id, updItem) => {
+    setReview(reviews.map(item => (item.id === id ? { ...item, ...updItem } : item)));
+  };
 
   return (
     <ReviewContext.Provider
       value={{
         reviews,
+        reviewEdit,
         addReview,
         deleteReview,
         editReview,
-        reviewEdit
+        updateReview,
       }}>
       {children}
     </ReviewContext.Provider>

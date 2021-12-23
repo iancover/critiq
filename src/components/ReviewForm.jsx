@@ -11,10 +11,10 @@ function ReviewForm() {
   const [text, setText] = useState('');
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState('');
-  const { addReview, reviewEdit } = useContext(ReviewContext);
+  const { addReview, reviewEdit, updateReview } = useContext(ReviewContext);
 
   useEffect(() => {
-    if (reviewEdit.edit) {
+    if (reviewEdit.edit === true) {
       setBtnDisabled(false);
       setRating(reviewEdit.item.rating);
       setText(reviewEdit.item.text);
@@ -38,7 +38,12 @@ function ReviewForm() {
     e.preventDefault();
     if (text.trim().length > 50) {
       const newReview = { text, rating };
-      addReview(newReview);
+
+      if (reviewEdit.edit === true) {
+        updateReview(reviewEdit.item.id, newReview);
+      } else {
+        addReview(newReview);
+      }
       setText('');
     }
   };
