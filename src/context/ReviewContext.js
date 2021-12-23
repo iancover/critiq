@@ -9,24 +9,38 @@ const ReviewContext = createContext();
 
 // create provider
 export const ReviewProvider = ({ children }) => {
-  const [review, setReview] = useState(ReviewData);
+  const [reviews, setReview] = useState(ReviewData);
+  const [reviewEdit, setReviewEdit] = useState({
+    item: {},
+    edit: false,
+  });
 
   const addReview = newReview => {
     newReview.id = uuidv4();
-    setReview([newReview, ...review]);
+    setReview([newReview, ...reviews]);
   };
 
   const deleteReview = id => {
     window.confirm('Permanently delete review?') &&
-      setReview(review.filter(item => item.id !== id));
+      setReview(reviews.filter(item => item.id !== id));
   };
+
+  const editReview = item => {
+    setReviewEdit({
+      item,
+      edit: true,
+    });
+  };
+
 
   return (
     <ReviewContext.Provider
       value={{
-        review,
+        reviews,
         addReview,
         deleteReview,
+        editReview,
+        reviewEdit
       }}>
       {children}
     </ReviewContext.Provider>
