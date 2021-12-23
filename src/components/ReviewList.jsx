@@ -5,14 +5,14 @@ import ReviewItem from './ReviewItem';
 import ReviewContext from '../context/ReviewContext';
 
 function ReviewList() {
-  const { review } = useContext(ReviewContext);
+  const { reviews } = useContext(ReviewContext);
 
-  (!review || review.length === 0) && <p>No Reviews Yet</p>;
+  (!reviews || reviews.length === 0) && <p>No Reviews Yet</p>;
 
   return (
     <div className='review-list'>
       <AnimatePresence>
-        {review.map(item => (
+        {reviews.map(item => (
           <motion.div
             key={item.id}
             initial={{ opacity: 0 }}
