@@ -1,0 +1,19 @@
+{
+  "reviews": [
+    {
+      "id": 1,
+      "rating": 10,
+      "text": "This is review item 1 coming from the server"
+    },
+    {
+      "id": 2,
+      "rating": 7,
+      "text": "This is review item 2 coming from the server"
+    },
+    {
+      "id": 3,
+      "rating": 8,
+      "text": "This is review item 3 coming from the server"
+    }
+  ]
+}
