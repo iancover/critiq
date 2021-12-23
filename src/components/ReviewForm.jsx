@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 // components
 import Card from './shared/Card';
 import Button from './shared/Button';
@@ -11,7 +11,15 @@ function ReviewForm() {
   const [text, setText] = useState('');
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState('');
-  const { addReview } = useContext(ReviewContext);
+  const { addReview, reviewEdit } = useContext(ReviewContext);
+
+  useEffect(() => {
+    if (reviewEdit.edit) {
+      setBtnDisabled(false);
+      setRating(reviewEdit.item.rating);
+      setText(reviewEdit.item.text);
+    }
+  }, [reviewEdit])
 
   const handleTextChange = e => {
     if (text === '') {
