@@ -1,19 +1,31 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 // data
-import ReviewData from '../data/ReviewData';
+// import ReviewData from '../data/ReviewData';
 
 // init context obj
 const ReviewContext = createContext();
 
 // create provider
 export const ReviewProvider = ({ children }) => {
-  const [reviews, setReview] = useState(ReviewData);
+  const [isLoading, setIsLoading] = useState(true);
+  const [reviews, setReview] = useState([]);
   const [reviewEdit, setReviewEdit] = useState({
     item: {},
     edit: false,
   });
+
+  useEffect(() => {
+    fetchReviews();
+  }, [])
+
+  const fetchReviews = async () => {
+    const res = await fetch(`http://localhost:5000/reviews?_sort=id&_order=desc`);
+    const data = await res.json();
+    setReview(data);
+    setIsLoading(false);
+  }
 
   const addReview = newReview => {
     newReview.id = uuidv4();
@@ -41,6 +53,7 @@ export const ReviewProvider = ({ children }) => {
       value={{
         reviews,
         reviewEdit,
+        isLoading,
         addReview,
         deleteReview,
         editReview,
