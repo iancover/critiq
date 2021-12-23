@@ -1,4 +1,4 @@
-# React critIQ App
+# [critIQ: React App](https://festive-panini-a6850c.netlify.app)
 
 This is a [React](https://reactjs.org/docs/getting-started.html#try-react) application for rating
 and writing reviews, it runs a mock REST api using [json-server](https://www.npmjs.com/package/json-server) to provide fake
