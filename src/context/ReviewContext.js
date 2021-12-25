@@ -24,7 +24,7 @@ export const ReviewProvider = ({ children }) => {
     const res = await fetch(`http://localhost:5000/reviews?_sort=id&_order=desc`);
     const data = await res.json();
     setReview(data);
-    setIsLoading(false);
+    setInterval(() => setIsLoading(false), 1000);
   }
 
   const addReview = newReview => {
