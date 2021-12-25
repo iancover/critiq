@@ -21,7 +21,8 @@ export const ReviewProvider = ({ children }) => {
   }, [])
 
   const fetchReviews = async () => {
-    const res = await fetch(`http://localhost:5000/reviews?_sort=id&_order=desc`);
+    const res = await fetch(`/reviews?_sort=id&_order=desc`);
+    // package.json > proxy: http://localhost:5000
     const data = await res.json();
     setReview(data);
     setInterval(() => setIsLoading(false), 1000);
