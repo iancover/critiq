@@ -28,12 +28,12 @@ export const ReviewProvider = ({ children }) => {
   };
 
   const addReview = async newReview => {
-    const response = await fetch('/reviews', {
+    const res = await fetch('/reviews', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newReview),
     });
-    const data = await response.json();
+    const data = await res.json();
     setReview([data, ...reviews]);
   };
 
@@ -51,8 +51,14 @@ export const ReviewProvider = ({ children }) => {
     });
   };
 
-  const updateReview = (id, updItem) => {
-    setReview(reviews.map(item => (item.id === id ? { ...item, ...updItem } : item)));
+  const updateReview = async (id, updItem) => {
+    const res = await fetch(`/reviews/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updItem),
+    });
+    const data = await res.json();
+    setReview(reviews.map(item => (item.id === id ? { ...item, ...data } : item)));
   };
 
   return (

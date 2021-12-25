@@ -14,6 +14,11 @@
       "id": 3,
       "rating": 8,
       "text": "This is review item 3 coming from the server"
+    },
+    {
+      "text": "This is an edited review and rating that was recently added.",
+      "rating": 6,
+      "id": 4
     }
   ]
 }
