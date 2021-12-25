@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
 // data
 // import ReviewData from '../data/ReviewData';
@@ -18,7 +17,7 @@ export const ReviewProvider = ({ children }) => {
 
   useEffect(() => {
     fetchReviews();
-  }, [])
+  }, []);
 
   const fetchReviews = async () => {
     const res = await fetch(`/reviews?_sort=id&_order=desc`);
@@ -26,11 +25,16 @@ export const ReviewProvider = ({ children }) => {
     const data = await res.json();
     setReview(data);
     setInterval(() => setIsLoading(false), 1000);
-  }
+  };
 
-  const addReview = newReview => {
-    newReview.id = uuidv4();
-    setReview([newReview, ...reviews]);
+  const addReview = async newReview => {
+    const response = await fetch('/reviews', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newReview),
+    });
+    const data = await response.json();
+    setReview([data, ...reviews]);
   };
 
   const deleteReview = id => {

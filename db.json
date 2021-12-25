@@ -14,6 +14,11 @@
       "id": 3,
       "rating": 8,
       "text": "This is review item 3 coming from the server"
+    },
+    {
+      "text": "This is a test review just writing extra words because...",
+      "rating": 9,
+      "id": 4
     }
   ]
 }
