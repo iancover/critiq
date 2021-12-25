@@ -37,9 +37,11 @@ export const ReviewProvider = ({ children }) => {
     setReview([data, ...reviews]);
   };
 
-  const deleteReview = id => {
-    window.confirm('Permanently delete review?') &&
+  const deleteReview = async id => {
+    if (window.confirm('Permanently delete review?')) {
+      await fetch(`/reviews/${id}`, { method: 'DELETE' });
       setReview(reviews.filter(item => item.id !== id));
+    }
   };
 
   const editReview = item => {
