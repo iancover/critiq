@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import ReviewItem from './ReviewItem';
 import ReviewContext from '../context/ReviewContext';
+import Spinner from './shared/Spinner';
 
 function ReviewList() {
   const { reviews, isLoading } = useContext(ReviewContext);
@@ -10,7 +11,7 @@ function ReviewList() {
   !isLoading && (!reviews || reviews.length === 0) && <p>No Reviews Yet</p>;
 
   return isLoading ? (
-    <h3>Loading...</h3>
+    <Spinner />
   ) : (
     <div className='review-list'>
       <AnimatePresence>
