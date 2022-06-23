@@ -20,14 +20,14 @@ export const ReviewProvider = ({ children }) => {
   }, []);
 
   const fetchReviews = async () => {
-    const res = await fetch(`/reviews?_sort=id&_order=desc`);
     // package.json > proxy: http://localhost:5000
+    const res = await fetch(`/reviews?_sort=id&_order=desc`);
     const data = await res.json();
     setReview(data);
-    setInterval(() => setIsLoading(false), 1000);
+    setIsLoading(false);
   };
 
-  const addReview = async newReview => {
+  const addReview = async (newReview) => {
     const res = await fetch('/reviews', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -37,14 +37,14 @@ export const ReviewProvider = ({ children }) => {
     setReview([data, ...reviews]);
   };
 
-  const deleteReview = async id => {
+  const deleteReview = async (id) => {
     if (window.confirm('Permanently delete review?')) {
       await fetch(`/reviews/${id}`, { method: 'DELETE' });
-      setReview(reviews.filter(item => item.id !== id));
+      setReview(reviews.filter((item) => item.id !== id));
     }
   };
 
-  const editReview = item => {
+  const editReview = (item) => {
     setReviewEdit({
       item,
       edit: true,
@@ -58,7 +58,7 @@ export const ReviewProvider = ({ children }) => {
       body: JSON.stringify(updItem),
     });
     const data = await res.json();
-    setReview(reviews.map(item => (item.id === id ? { ...item, ...data } : item)));
+    setReview(reviews.map((item) => (item.id === id ? data : item)));
   };
 
   return (
