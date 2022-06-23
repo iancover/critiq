@@ -19,24 +19,25 @@ function ReviewForm() {
       setRating(reviewEdit.item.rating);
       setText(reviewEdit.item.text);
     }
-  }, [reviewEdit])
+  }, [reviewEdit]);
 
-  const handleTextChange = e => {
-    if (text === '') {
+  const handleTextChange = ({ target: { value } }) => {
+    if (value === '') {
       setBtnDisabled(true);
       setMessage(null);
-    } else if (text !== '' && text.trim().length <= 50) {
-      setMessage('Text must be at least 50 characters');
+    } else if (value.trim().length < 20) {
+      setMessage('Text must be at least 20 characters');
+      setBtnDisabled(true);
     } else {
       setMessage(null);
       setBtnDisabled(false);
     }
-    setText(e.target.value);
+    setText(value);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (text.trim().length > 50) {
+    if (text.trim().length > 20) {
       const newReview = { text, rating };
 
       if (reviewEdit.edit === true) {
@@ -44,15 +45,18 @@ function ReviewForm() {
       } else {
         addReview(newReview);
       }
+      setBtnDisabled(true);
+      setRating(10);
       setText('');
     }
   };
 
+  // pass selected rating to RatingSelect to avoid local duplicate state
   return (
     <Card reverse={true}>
       <form onSubmit={handleSubmit}>
         <h2>Select Rating & Write Review:</h2>
-        <RatingSelect selectRating={rating => setRating(rating)} />
+        <RatingSelect selectRating={setRating} selectedRating={rating} />
         <div className='input-group'>
           <textarea
             onChange={handleTextChange}

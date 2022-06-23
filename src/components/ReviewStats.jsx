@@ -4,8 +4,10 @@ import ReviewContext from '../context/ReviewContext';
 function ReviewStats() {
   const { reviews } = useContext(ReviewContext);
 
-  let avgRating = reviews.reduce((acc, curr) => acc + curr.rating, 0) / reviews.length;
-  avgRating = avgRating.toFixed(1).replace(/[.,]0$/, '');
+  // NOTES: simplified calculation
+  const avgRating = Math.round(
+    reviews.reduce((acc, { rating }) => acc + rating, 0) / reviews.length
+  );
 
   return (
     <div className='review-stats'>
