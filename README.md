@@ -1,10 +1,12 @@
-# critIQ
+# [critIQ](https://critiq-react-app.netlify.app)
 
 ## React App for Ratings and Reviews
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/33351f97-a8a9-485d-9276-297b36cecf2d/deploy-status)](https://app.netlify.com/sites/critiq-react-app/deploys)
+
 ---
 
-A mock [React](https://reactjs.org/docs/getting-started.html#try-react) UI for submitting _ratings_ and _reviews_, bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A mock [React](https://reactjs.org/docs/getting-started.html#try-react) UI for submitting _ratings_ and _reviews_, bootstrapped with [Create React App](https://github.com/facebook/create-react-app). You can view the production `build` live demo here: [deployed to Netlify](https://www.netlify.com/?utm_source=google&utm_medium=paid_search&utm_campaign=12755510784&adgroup=118788138897&utm_term=netlify&utm_content=aud-1596644761615:kwd-371509120223&creative=516906172749&device=c&matchtype=e&location=9028317&gclid=Cj0KCQjwntCVBhDdARIsAMEwACnUWdPiqrRkB5_Xgj_En8rWNSmoir0z_Tm_oEAUaq1D99EacTlCojMaAh8xEALw_wcB).
 
 > _Note: the live demo only stores data in the browser so it resets to the initial state on page reload._
 
@@ -96,3 +98,5 @@ create an `.env` file in your **_root_** project folder and add this variable
 ```sh
 DANGEROUSLY_DISABLE_HOST_CHECK=true
 ```
+
+

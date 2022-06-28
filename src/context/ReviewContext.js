@@ -1,4 +1,8 @@
-import { createContext, useState, useEffect } from 'react';
+import {
+  createContext,
+  useState,
+  // useEffect
+} from 'react';
 
 // data
 import ReviewData from '../data/ReviewData';
