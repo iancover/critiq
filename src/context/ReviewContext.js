@@ -1,46 +1,59 @@
 import { createContext, useState, useEffect } from 'react';
 
 // data
-// import ReviewData from '../data/ReviewData';
+import ReviewData from '../data/ReviewData';
 
 // init context obj
 const ReviewContext = createContext();
 
 // create provider
 export const ReviewProvider = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [reviews, setReview] = useState([]);
+  // *** UNCOMMENT LINES TO RUN W/JSON SERVER ***
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [reviews, setReviews] = useState([]);
+
+  // *** COMMENT OUT LINE TO RUN W/JSON SERVER ***
+  const [reviews, setReviews] = useState(ReviewData);
+
   const [reviewEdit, setReviewEdit] = useState({
     item: {},
     edit: false,
   });
 
-  useEffect(() => {
-    fetchReviews();
-  }, []);
+  // *** UNCOMMENT TO RUN W/JSON SERVER ***
+  // useEffect(() => {
+  //   fetchReviews();
+  // }, []);
 
-  const fetchReviews = async () => {
-    // package.json > proxy: http://localhost:5000
-    const res = await fetch(`/reviews?_sort=id&_order=desc`);
-    const data = await res.json();
-    setReview(data);
-    setIsLoading(false);
-  };
+  // *** UNCOMMENT TO RUN W/JSON SERVER ***
+  // const fetchReviews = async () => {
+  //   // package.json > proxy: http://localhost:5000
+  //   const res = await fetch('/reviews?_sort=id&_order=desc');
+  //   const data = await res.json();
+  //   setReviews(data);
+  //   setIsLoading(false);
+  // };
 
   const addReview = async (newReview) => {
-    const res = await fetch('/reviews', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newReview),
-    });
-    const data = await res.json();
-    setReview([data, ...reviews]);
+    // *** UNCOMMENT TO RUN W/JSON SERVER ***
+    // const res = await fetch('/reviews', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(newReview),
+    // });
+    // const data = await res.json();
+    // setReviews([data, ...reviews]);
+
+    // *** COMMENT OUT LINE TO RUN W/JSON SERVER ***
+    setReviews([newReview, ...reviews]);
   };
 
   const deleteReview = async (id) => {
     if (window.confirm('Permanently delete review?')) {
-      await fetch(`/reviews/${id}`, { method: 'DELETE' });
-      setReview(reviews.filter((item) => item.id !== id));
+      // *** UNCOMMENT TO RUN W/JSON SERVER ***
+      // await fetch(`/reviews/${id}`, { method: 'DELETE' });
+
+      setReviews(reviews.filter((item) => item.id !== id));
     }
   };
 
@@ -52,13 +65,18 @@ export const ReviewProvider = ({ children }) => {
   };
 
   const updateReview = async (id, updItem) => {
-    const res = await fetch(`/reviews/${id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(updItem),
-    });
-    const data = await res.json();
-    setReview(reviews.map((item) => (item.id === id ? data : item)));
+    // *** UNCOMMENT LINES TO RUN W/JSON SERVER ***
+    // const res = await fetch(`/reviews/${id}`, {
+    //   method: 'PUT',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(updItem),
+    // });
+    // const data = await res.json();
+    // setReviews(reviews.map((item) => (item.id === id ? data : item)));
+
+    // *** COMMENT OUT LINES TO RUN W/JSON SERVER ***
+    const data = { id, ...updItem };
+    setReviews(reviews.map((item) => (item.id === id ? data : item)));
   };
 
   return (
@@ -66,7 +84,7 @@ export const ReviewProvider = ({ children }) => {
       value={{
         reviews,
         reviewEdit,
-        isLoading,
+        // isLoading,
         addReview,
         deleteReview,
         editReview,

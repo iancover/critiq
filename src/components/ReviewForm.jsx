@@ -1,8 +1,8 @@
 import { useState, useContext, useEffect } from 'react';
 // components
+import RatingSelect from './RatingSelect';
 import Card from './shared/Card';
 import Button from './shared/Button';
-import RatingSelect from './RatingSelect';
 // context
 import ReviewContext from '../context/ReviewContext';
 
@@ -16,8 +16,8 @@ function ReviewForm() {
   useEffect(() => {
     if (reviewEdit.edit === true) {
       setBtnDisabled(false);
-      setRating(reviewEdit.item.rating);
       setText(reviewEdit.item.text);
+      setRating(reviewEdit.item.rating);
     }
   }, [reviewEdit]);
 
@@ -55,8 +55,10 @@ function ReviewForm() {
   return (
     <Card reverse={true}>
       <form onSubmit={handleSubmit}>
-        <h2>Select Rating & Write Review:</h2>
+        <h2 className='card-heading'>RATE</h2>
         <RatingSelect selectRating={setRating} selectedRating={rating} />
+
+        <h2 className='review-heading'>REVIEW</h2>
         <div className='input-group'>
           <textarea
             onChange={handleTextChange}
